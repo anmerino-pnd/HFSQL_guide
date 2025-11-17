@@ -1,0 +1,12 @@
+.env
+.venv/
+data/
+notebooks/
+src/hfsql_guide.egg-info/
+
+__pycache__/
+__init__.py
+*.pyc
+*.pyo
+
+logs/*
