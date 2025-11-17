@@ -1,7 +1,7 @@
 .env
 .venv/
 data/
-notebooks/
+
 src/hfsql_guide.egg-info/
 
 __pycache__/
