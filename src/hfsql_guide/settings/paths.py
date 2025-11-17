@@ -10,11 +10,11 @@ def find_project_root(start_path: Path, marker_file: str = "pyproject.toml") -> 
 BASE_DIR = find_project_root(Path(__file__))
 
 DATA_DIR = BASE_DIR / "data"
-CSV_DIR = BASE_DIR / "csv" 
+PARQUET_DIR = DATA_DIR / "parquet" 
 
 
 for path in [
     DATA_DIR,
-    CSV_DIR
+    PARQUET_DIR
              ]:
     path.mkdir(parents=True, exist_ok=True)

@@ -1,6 +1,6 @@
 .env
 .venv/
-data/
+data
 
 src/hfsql_guide.egg-info/
 
