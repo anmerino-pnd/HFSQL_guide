@@ -89,6 +89,7 @@ def save_to_parquet(data, prefix="query_result"):
         df.to_parquet(full_path, index=False)
         print(f"    Table was succesfully saved in:\n   -> {full_path}")
         print(f"    Saved data: {len(df)}")
+        print(f"    Head of df: {df.head(3)}")
         
     except Exception as e:
         print(f"  An error ocurred while saving the data: {e}")
