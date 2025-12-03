@@ -24,8 +24,17 @@ def query_hfsql(sql_query):
 
         if result.returncode != 0:
             raise Exception(f"Process error: {result.stderr}")
-
-        return parse_iodbctest_output(result.stdout)
+        
+        raw_output = result.stdout
+        
+        parsed_data = parse_iodbctest_output(raw_output)
+        
+        if not parsed_data:
+            print("\n--- DEBUG: RAW OUTPUT ---")
+            print(raw_output)
+            print("----------------------------------------\n")
+            
+        return parsed_data
 
     except Exception as e:
         raise e
@@ -99,7 +108,7 @@ if __name__ == "__main__":
             print("\n --- lower case with _ instead of white spaces please --- ")
             prefix = input("  Please insert the name of the file: ").strip()
 
-            print("⏳ wait please...")
+            print("⏳ Wait please...")
             resultados = query_hfsql(user_input)
 
             if resultados:
