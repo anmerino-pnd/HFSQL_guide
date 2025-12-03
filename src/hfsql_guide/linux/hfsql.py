@@ -9,7 +9,11 @@ import os
 
 def query_hfsql(sql_query):
 
-    dsn_str = f"DSN={dsn};UID={user};PWD={passwd}" # Remember to change the values in .env
+    if not dsn or not user or not passwd:
+        print("\n CRITICAL ERROR: Credentials are EMPTY.")
+        print(f"   DSN: '{dsn}' | USER: '{user}' | PASS: '{passwd}'")
+        return []
+    dsn_str = f"DSN={dsn};UID={user};PWD={passwd}" # Remember to add the values in .env
 
     command = f'echo "{sql_query}" | iodbctest "{dsn_str}"'
 
