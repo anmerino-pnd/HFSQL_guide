@@ -8,6 +8,7 @@ import os
 
 
 def query_hfsql(sql_query):
+
     dsn_str = f"DSN={dsn};UID={user};PWD={passwd}" # Remember to change the values in .env
 
     command = f'echo "{sql_query}" | iodbctest "{dsn_str}"'
@@ -87,15 +88,16 @@ if __name__ == "__main__":
     while True:
         try:
             user_input = input("\n  Please insert your SQL query: ").strip()
-            print("\n --- lower case with _ instead of white spaces please --- ")
-            prefix = input("  Please insert the Name of the file: ").strip()
-            
+
             if user_input.lower() in ['exit', 'quit']:
                 print(" Bye!")
                 break
             
             if not user_input:
                 continue
+
+            print("\n --- lower case with _ instead of white spaces please --- ")
+            prefix = input("  Please insert the name of the file: ").strip()
 
             print("⏳ wait please...")
             resultados = query_hfsql(user_input)
